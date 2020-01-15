@@ -1,0 +1,22 @@
+{
+  "name": "orm",
+  "version": "1.0.0",
+  "description": "tech test",
+  "main": "app.js",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "consolidate": "^0.15.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "path": "^0.12.7",
+    "route": "^0.2.5",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Osman Elmain",
+  "license": "ISC"
+}
