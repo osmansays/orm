@@ -6,7 +6,7 @@
 
 It's a small NodeJS applicatin to save single record through web form to an sqlite database .
 The running application can be found on : 
-[![N|Solid](http://animalregapp-879959901.ap-south-1.elb.amazonaws.com/)](http://animalregapp-879959901.ap-south-1.elb.amazonaws.com/)
+[!(http://animalregapp-879959901.ap-south-1.elb.amazonaws.com/)](http://animalregapp-879959901.ap-south-1.elb.amazonaws.com/)
 
 The application hosted on 2 EC2 AWS instances behind a load balancer (round robin) , while the only open ports are 80 (for web requests) and 22 (for ssh access) , with specfic public keys copied on each instances.
 The application showed the running server name to determine if Load Balancer is working properly .
