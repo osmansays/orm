@@ -1,6 +1,6 @@
 # Technical Test Project 
 
-[![N|Solid](https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/apptopia/app/1b027a7f-520e-432b-a107-97271243d366)](https://www.linkedin.com/in/osman-elamin/)
+[https://www.linkedin.com/in/osman-elamin/] (Osman Elamin )
 
 # Web Application !
 
