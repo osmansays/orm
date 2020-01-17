@@ -1,0 +1,52 @@
+---
+- hosts: webservers
+  become: yes
+  become_user: root
+  tasks:
+    - name: "Adding Node Source"
+      become: yes
+      shell: curl -sL https://deb.nodesource.com/setup_13.x | bash -
+      args:
+        warn: no
+    - name : "Installing prequisites (git , nodejs,npm )"
+      apt:
+        name: "{{ app  }}"
+        state: latest
+        update_cache: yes
+      vars:
+        app:
+          - git
+          - nodejs
+    - name: "Create web app directory if it does not exist"
+      file:
+        path: /home/ubuntu/WebAppDir/
+        state: directory
+        mode: '7777'
+    - name: "Cloning/Updating web app directory from git repo."
+      git:
+        repo: https://github.com/osmansays/orm.git
+        dest: /home/ubuntu/WebAppDir/
+        force: yes
+        clone: yes
+        update: yes
+    - name: "installing sqlite3"
+      shell: npm install sqlite3 /home/ubuntu/WebAppDir/orm_webapp/ --save
+    - name: "install dependencies"
+      shell: npm install /home/ubuntu/WebAppDir/orm_webapp/
+    - name : "Rebuilding application"
+      shell: npm rebuild
+    - name: "Install forever (to run Node.js app)."
+      npm:
+        name: forever
+        global: yes
+        state: present
+    - name: "Check list of Node.js apps running."
+      command: forever list
+      register: forever_list
+      changed_when: false
+    - name: "stop all running forever to start with new version"
+      shell: forever restart /home/ubuntu/WebAppDir/orm_webapp/app.js
+      when: "forever_list.stdout.find('/home/ubuntu/WebAppDir/orm_webapp/app.js') != -1"
+    - name: "Start app.js application using forever"
+      command: forever start /home/ubuntu/WebAppDir/orm_webapp/app.js
+      when: "forever_list.stdout.find('/home/ubuntu/WebAppDir/orm_webapp/app.js') == -1"
