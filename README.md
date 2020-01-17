@@ -1,6 +1,6 @@
 # Technical Test Project 
-
-[(https://www.linkedin.com/in/osman-elamin/)](Osman Elamin )
+Osman Elamin
+(https://www.linkedin.com/in/osman-elamin/)
 
 # Web Application !
 
