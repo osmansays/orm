@@ -8,7 +8,7 @@ const util = require('util')
 var os = require('os')
 const hbs = require('hbs')
 const app= express()
-const port=3000
+const port=80
 app.use(parser.json());
 app.set('views', __dirname + '/view')
 app.engine('html', require('ejs').renderFile);
