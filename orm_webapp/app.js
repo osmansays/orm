@@ -5,8 +5,10 @@ const route=require("route")
 const path=require("path")
 const sqlite3=require("sqlite3").verbose()
 const util = require('util')
+var os = require('os')
 const app= express()
 const port=80
+var servername=os.hostname()
 var msg
 app.use(parser.json());
 app.set('views', __dirname + '/view');
@@ -32,7 +34,7 @@ app.use(parser.urlencoded({
 
 
 app.get("/",(req,res)=>{
-    res.sendFile("index.html")
+    res.sendFile("index.html?servername="+servername)
 })
 
 
