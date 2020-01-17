@@ -32,7 +32,7 @@ apt-get update
 - Second EC2 Public DNS: ec2-52-66-205-33.ap-south-1.compute.amazonaws.com
 - Load Balancer Public DNS: http://animalregapp-879959901.ap-south-1.elb.amazonaws.com/
 
-Benifits :
+## Benifits :
 - The solution is easily scalable , all it requires is just creating a new EC2 with enable public key access .
 - The solution is running behind a Load Balancer to insure highest availablity possible.
 - Firewall and acess rules are configured and only required port are open (ssh and web application) , for both instances.
