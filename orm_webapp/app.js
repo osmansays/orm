@@ -6,7 +6,7 @@ const path=require("path")
 const sqlite3=require("sqlite3").verbose()
 const util = require('util')
 const app= express()
-const port=3000
+const port=80
 var msg
 app.use(parser.json());
 app.set('views', __dirname + '/view');
