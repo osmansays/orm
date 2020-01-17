@@ -35,7 +35,7 @@ app.use(parser.urlencoded({
 
 
 app.get("/",(req,res)=>{
-   res.render('Index.html', { servername: servername })
+   res.render('index.html', { servername: servername })
 
 })
 
