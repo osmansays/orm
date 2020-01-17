@@ -12,7 +12,7 @@ const port=80
 app.use(parser.json());
 app.set('views', __dirname + '/view')
 app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html')
+app.set('view engine', 'ejs')
 var servername=os.hostname()
 var msg
 
