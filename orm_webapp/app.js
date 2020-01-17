@@ -6,12 +6,16 @@ const path=require("path")
 const sqlite3=require("sqlite3").verbose()
 const util = require('util')
 var os = require('os')
+const hbs = require('hbs')
 const app= express()
-const port=80
+const port=3000
+app.use(parser.json());
+app.set('views', __dirname + '/view')
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html')
 var servername=os.hostname()
 var msg
-app.use(parser.json());
-app.set('views', __dirname + '/view');
+
 
 
 
@@ -25,16 +29,14 @@ var db = new sqlite3.Database("Animals.sqlite3", err => {
     }
 });
 
-
-app.use(express.static(path.join(__dirname,"view")))
-
 app.use(parser.urlencoded({
     extended: true
 }));
 
 
 app.get("/",(req,res)=>{
-    res.sendFile("index.html?servername="+servername)
+   res.render('Index.html', { servername: servername })
+
 })
 
 
